@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('type',[\App\Models\User::TYPE_SHOP_ADMIN,\App\Models\User::TYPE_USER])->default(\App\Models\User::TYPE_USER);
             $table->rememberToken();
             $table->timestamps();
         });

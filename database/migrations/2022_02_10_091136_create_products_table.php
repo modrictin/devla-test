@@ -13,7 +13,7 @@ class CreateProductsTable extends Migration
 
             $table->string('name');
             $table->integer('price')->default(0);
-            $table->foreignId('currency_id')->constrained();
+            $table->foreignId('currency_id')->constrained('currencies');
             $table->integer('stock');
 
 
