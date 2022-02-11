@@ -12,8 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    const TYPE_USER = 1;
-    const TYPE_SHOP_ADMIN = 2;
+    const TYPE_USER = 'user';
+    const TYPE_SHOP_ADMIN = 'admin';
 
 
     /**
@@ -25,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type',
     ];
 
     /**

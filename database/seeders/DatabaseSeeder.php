@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $user->password = Hash::make('devlatest');
         $user->email = 'modrictin7@gmail.com';
         $user->email_verified_at = date("Y-m-d H:i:s");
+        $user->type = User::TYPE_SHOP_ADMIN;
         $user->save();
     }
 }

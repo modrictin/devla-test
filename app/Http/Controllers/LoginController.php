@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,13 @@ class LoginController extends Controller
             abort(401,'Credentials not match');
         }
 
-        $token = $request->user()->createToken('bearer');
+        $abilities = [];
+
+        if($request->user()->type == User::TYPE_SHOP_ADMIN){
+            $abilities = [User::TYPE_SHOP_ADMIN];
+        }
+
+        $token = $request->user()->createToken('bearer',$abilities);
 
         return [
             'token' => $token->plainTextToken,
