@@ -18,7 +18,9 @@ Route::post('/login', [\App\Http\Controllers\LoginController::class, 'index']);
 
 
 Route::group(['middleware' => ['auth:sanctum','abilities:admin'],'name' => 'admin.'],function (){
-    Route::post('/add-product',[\App\Http\Controllers\ProductsController::class,'store'])->name('add-product');
+    #We can use resource if we want, we can also add ->except()
+    Route::post('/product',[\App\Http\Controllers\ProductsController::class,'store'])->name('add-product');
+
 });
 
 Route::group(['middleware' => ['auth:sanctum']],function (){
