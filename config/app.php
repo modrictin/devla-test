@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         App\Providers\ResponseMacroServiceProvider::class,
+        App\Providers\ShopServiceProvider::class,
     ],
 
     /*
@@ -191,8 +192,22 @@ return [
     |
     */
 
+    /*
+    |--------------------------------------------------------------------------
+    | Aliases array duplicate _ TEMP SOLUTIONS
+    |--------------------------------------------------------------------------
+    |
+    | Laravel 9 merged Facade::defaultAliases() with new aliases so IDE-HELPER will not work.
+    |  To work around this we added key aliases
+    |
+    */
+
+    'aliases'=>[
+        'Shop'   => \App\Facades\ShopFacade::class
+    ],
+
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'Shop'   => \App\Facades\ShopFacade::class
     ])->toArray(),
 
 ];

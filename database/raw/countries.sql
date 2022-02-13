@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `countries`
 (
     `id`
 )
-    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+    )  DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `country`

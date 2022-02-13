@@ -13,6 +13,7 @@ class CreateTableOrderProduct extends Migration
 
             $table->foreignIdFor(\App\Models\Order::class);
             $table->foreignIdFor(\App\Models\Product::class);
+            $table->integer('quantity');
 
             $table->timestamps();
         });
