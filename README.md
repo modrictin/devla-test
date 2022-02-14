@@ -1,4 +1,4 @@
-#Technical task - Backend developer - Devla d.o.o
+# Technical task - Backend developer - Devla d.o.o
 Your task is to create a basic shop checkout process API (without the payment part). The
 requirements are following:
 - Only a logged in user can buy a product
@@ -41,39 +41,39 @@ Bonus points for:
 - Design patterns
 - Testing
 
-#The solution
+# The solution
 
-##Approach
+## Approach
 
 The solution was designed following the test requirements and bonus questions. 
 The solution was upgraded with the facade design pattern. 
 
 
-##Features
+## Features
 
-###Login
+### Login
 Laravel Sanctum package was used to authenticate API users and assign them an API token with special abilities.
 Since this is a small "project" I only designed 2 abilities SHOP_ADMIN and USER, which can be found 
 in an User.php model as a constant. I could also use a Spatie Role package to achieve this.
 
-###Json Response Macros
+### Json Response Macros
 Since I designed and API I created two macros to help me return a standardized json response 
 for my "frontend". 
 
-###Resources
+### Resources
 
 Two resources were created for handling the transformation of data to Json format:
 
 - OrderResource.php
 - ProductResource.php
 
-###Shop service provider and ShopFacade
+### Shop service provider and ShopFacade
 To get the bonus points for the "Design patterns" category I designed a simple Facade
 for my Shop service sigleton bound in the app. There was not a specific problem to solve
 by using some other design patterns. I don't want to invent the problems just to solve them.
 Maybe I'm wrong here, I'm open for criticism!  😊
 
-###Shop service and the controllers
+### Shop service and the controllers
 
 I used my shop service to handle the shop business logic and I used my controllers
 to get and validate data for the business logic.
@@ -86,10 +86,10 @@ I created an invokable action called CompleteOrder.php
 
 The app also checks the availability of the items when creating new order or adding the products to existing one.
 
-###Testing
+### Testing
 I wrote few simple tests to test some of the routes and their responses.
 
-###Price, currency and country storage
+### Price, currency and country storage
 I stored price as an integer to make communication to the external APIs more easy.
 The currency and country data was imported by raw sql files and a model was created for them.
 
